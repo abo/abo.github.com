@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>{{ page.title }}</title>
+  <meta name="author" content="Shengbo Huang" />
+  <link rel='alternate' type='application/atom+xml' title='full articles' href='' />
+  <link rel='alternate' type='application/rss+xml' title='comments' href='' />
+
+  <!-- syntax highlighting CSS -->
+  <link rel="stylesheet" href="/css/syntax.css" type="text/css" />
+
+  <!-- homepage CSS, imports others -->
+  <link rel="stylesheet" href="/css/site.css" type="text/css" media="screen, projection" />
+</head>
+
+<body>
+  <div id="site">
+    <div id="page">
+      
+      <div id="content">
+        {{ content }}
+      </div>
+      
+      <div id="sidebar">        
+        <div id="header">
+          <a href="/"><h1>Abo's GitHub Pages</h1></a>
+        </div>
+
+        <h3>Shengbo Huang</h3>
+        <ul>
+          <li><p class='indented'>loooooooooser!<p></li>    
+          <li>Google Talk/Email: huangshengbo@gmail.com</li>
+          <li>
+            <a href="http://github.com/abo">GitHub</a>,
+          	<a href="http://twitter.com/huangshengbo">Twitter</a>         
+            <!--<a href="http://zuosa.com/debodebo">Zuosa</a>-->
+          </li>
+
+        </ul>
+
+        <h3 class='sidebar-title'>Blog Posts</h3>
+        <ul>
+          <li>
+            <table>
+              {% for post in site.posts %}
+              <tr valign='top'>
+                <td nowrap><span class='date'>{{ post.date | date_to_string }}</span></td>
+                <td> &raquo; </td>
+                <td><a href="{{ post.url }}">{{ post.title }}</a></td>
+              </tr>
+              {% endfor %}
+            </table>
+          </li>
+        </ul>
+
+        <h3 class='sidebar-title'>Links</h3>
+        <ul>
+          <!--<li><a href="" title=""></a></li>-->
+        </ul>
+
+        <h3 class='sidebar-title'>Feeds</h3>
+        <ul>         
+          <!--<li><a href="" title="github feed">github</a></li>-->
+          <!--<li><a href="" title="twitter feed">twitter</a></li>-->
+        </ul>
+      </div><!-- end of sidebar -->  	
+
+            
+      <div id='footer'>      	
+      	Theme inspired by <a href="http://alpinegizmo.com/">David Anderson</a>. Hosted by <a href="http://github.com">GitHub</a>,Powered by <a href="http://wiki.github.com/mojombo/jekyll/">Jekyll</a>. 
+        Content Copyright &copy; 2010 Shengbo Huang. <br />        
+      </div>
+
+    </div><!-- end of page -->
+  </div><!-- end of site -->
+
+</body>
+</html>

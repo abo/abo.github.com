@@ -1,0 +1,109 @@
+/* this started its life as a Typo theme */
+
+#content #disqus_thread #dsq-content h3 {
+  font-weight: normal;
+}
+
+#content .post { 
+  color:#555;
+  clear:right;
+  /*border-bottom: 1px solid #9a7d61;*/
+  padding-top: 2em;
+}
+
+#content h1 {
+  color: #9a7d61;
+  font-size: 2.3em;
+  margin-bottom: 0.3em;
+  font-weight: 400;
+  text-shadow: #aaa 0.1em 0.1em 0.3em;
+}
+
+#content h2 {
+  color: #9a7d61;
+  font-size: 1.6em;
+  margin: 1.2em 0 .3em; 
+  padding: 0;
+}
+
+#content h3 {
+  color: #9a7d61;
+  font-size: 1.4em;
+}
+
+#content h4 { 
+  color: #9a7d61;
+  font-size: 1.2em;
+}
+
+#content li {
+  padding-bottom: 0.5em;
+}
+
+#content p, #content li {
+  color: #222; 
+  line-height: 1.6em; 
+  margin: 0 0 0.6em; 
+  padding: 0;
+}
+
+#content p {
+  margin: 0 0 0.8em; 
+}
+
+#content li {
+  margin: 0 0 0.4em; 
+}
+
+#content .post .article_body ol {
+  margin: 1em 1em; 
+  padding-left: 3.4em;
+}
+
+#content .post .article_body ul {
+  margin: 1em 1em; 
+  padding-left: 1.6em;
+  list-style: none;   
+}
+
+#content .post .article_body ul li:before { 
+  font-size: 1.3em;
+  vertical-align: -0.15em;
+  color: #e7dbd5;
+}
+
+#content pre {
+  margin: 0.5em 1.5em;
+  overflow: auto; 
+}
+
+#content .post .meta {
+  font-size: 0.9em; 
+  margin: 0em 0.1em 0.1em 0.1em; 
+}
+
+#content .post .meta .post_time {
+  color:#999;
+}
+
+#content .post_time {
+	border-bottom: 1px dotted #9a7d61;
+}
+
+#content blockquote {
+  margin-bottom: 2.5em;
+}
+
+#content .post blockquote p, #content .post q, .pullquote {
+  color: #555;
+  line-height: 1.4em;
+} 
+
+#content blockquote a {
+  float: right;
+}
+
+#content p.alt a {
+  font-size: 11px;
+  margin: 0 0.3em 0;
+}

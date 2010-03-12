@@ -1,0 +1,96 @@
+/**
+ * site.css
+ * Imports all stylesheets and sets defaults for common elements
+ * This is the only file you need to include in your html document
+ */
+@import 'sidebar.css';
+@import 'content.css';
+@import 'syntax.css';
+
+@media print {
+  #sidebar {display:none;}
+  #content {float:none; width:100%;}
+}
+
+body, div, p, img, h1, h2, h3, h4 {
+  margin: 0; 
+  padding: 0; 
+  text-align: left;
+}
+
+body {
+  font: normal 12px verdana, arial, helvetica, sans-serif;
+}
+
+a {
+  color:#9a7d61;
+  text-decoration:none;
+}
+
+img {
+  border:0;
+}
+
+
+/*
+  Controls the main layout and colours (width, height, margin, padding)
+*/
+
+#site {
+  width: 100%;
+}
+
+#page {
+	margin:20px auto auto;
+	min-width:900px;
+	text-align:left;
+	width:85.5em;
+	/*-moz-border-radius-bottomleft:0.8em;
+	-moz-border-radius-bottomright:0.8em;
+	-moz-border-radius-topleft:0.8em;
+	-moz-border-radius-topright:0.8em;
+	background-color:#EDEDED;
+	border:1px solid #999999;*/
+}
+
+#content {  
+  max-width: 52em;
+  padding: 1.5em 1.5em;
+  float:left;
+  width:662px;
+}
+
+#sidebar {
+  width: 325px;
+  padding: 20px;
+  margin-top: 10px;
+  margin-left:662px;
+  /*float: left; */
+  border-left:1px solid #9A7D61;
+}
+
+#footer {
+  clear: both;
+  color: #666;
+  /*padding: 5px 20px 20px 20px;*/
+  padding-top:5px;
+  padding-left:682px;
+  font-size: 85%;
+  text-align:left;
+  border-top:1px solid #9A7D61;
+}
+
+h1, h2, h3 {
+  font: 3.5em/1.2em "Trajan", "Baskerville", "Times New Roman", georgia, serif; 
+  // text-transform:uppercase; 
+  letter-spacing:0.07em;
+}
+
+.date {
+  // font-family: Monaco, "Courier New", monospace;
+  font-size: 85%;
+}
+
+.indented {
+  padding-left: 1em;
+}

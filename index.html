@@ -1,8 +1,17 @@
-		<p><h1>Abo's GitHub Pages Works!</h1></p>
-		<p>
-			<a href="http://twitter.com/huangshengbo">Twitter</a><br/>
-			<a href="http://zuosa.com/debodebo">Zuosa</a>
-		</p>
-		<p>//TODO</p>
-	</body>
-</html>
+---
+layout: default
+title: Abo's GitHub Pages
+---
+{% for post in site.posts limit:6 %}
+  <div class="post">
+    <div class="meta">
+      <h1><a href="{{post.url}}">{{ post.title }}</a></h1>
+      <p class="post_time">{{ post.date | date_to_string }}, <a href="{{post.url}}#disqus_thread">comments</a></p>
+    </div>
+
+    <div class="article_body">
+      {{ post.content }}
+    </div>
+  </div>
+{% endfor %}
+
