@@ -8,3 +8,9 @@ title: Hello World
 * Hello World!
 
 Hello World!
+{% highlight C# linenos %}
+	public static void Main()
+	{
+		Console.WriteLine("Hello World!");
+	}
+{% endhighlight %}
