@@ -35,9 +35,3 @@ module XSLTRender
 end
 {% endhighlight %}
 
-{% highlight csharp %}
-	public static void Main()
-	{
-		Console.WriteLine("Hello World!");
-	}
-{% endhighlight %}
