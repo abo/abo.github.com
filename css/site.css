@@ -61,7 +61,7 @@ img {
 }
 
 #sidebar {
-  width: 325px;
+  /*width: 325px;*/
   padding: 20px;
   margin-top: 10px;
   margin-left:662px;
@@ -72,11 +72,9 @@ img {
 #footer {
   clear: both;
   color: #666;
-  /*padding: 5px 20px 20px 20px;*/
-  padding-top:5px;
-  padding-left:682px;
+  padding: 5px 20px 20px 20px;
   font-size: 85%;
-  text-align:left;
+  text-align:right;
   border-top:1px solid #9A7D61;
 }
 
