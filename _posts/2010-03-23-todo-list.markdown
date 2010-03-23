@@ -1,0 +1,10 @@
+---
+layout: post
+title: TODO list
+---
+
+心情不好，挖个坑，不知道填不填，也不知道什么时候填：
+
+1. Objective-C、Cocoa、SmallTalk
+1. WebKit、HTML5、CSS、Qt
+1. Hadoop、Haskell
