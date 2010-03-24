@@ -3,8 +3,8 @@ layout: post
 title: TODO list
 ---
 
-心情不好，挖个坑，不知道填不填，也不知道什么时候填：
+脑袋不行了，老丢三落四，挖个坑，心情好的时候再填：
 
-1. Objective-C、Cocoa、SmallTalk
-1. WebKit、HTML5、CSS、Qt
-1. Hadoop、Haskell
+1. Objective-C、Cocoa、SmallTalk 据说obj-c/smalltalk的oo和java/c#/c++族不太一样，抽空了解了解；cocoa是某些大牛推崇备至的（<a href="http://blog.youxu.info/2010/02/28/why-mac-os-x-for-programmers/">开发人员为何应该使用 Mac OS X 兼 OS X 小史</a>），所以也顺便看看。就是Mac忒TM贵，忒TM封闭了，唉，有钱再说吧。
+1. WebKit、HTML5、CSS、Qt 移动应用程序开发的平台多，成本高是个很头疼的问题，如果能用WebKit + Html，应该不错，不过不知道可不可行。<a href="http://qt.nokia.com/products-cn/class-library/modular-class-library#info_webkit">qt&webkit</a> <a href="http://www.ibm.com/developerworks/cn/opensource/os-androidiphone1/index.html#N100BE">android&iphone</a>
+1. Hadoop、Haskell 这个。。。爷乐意！
