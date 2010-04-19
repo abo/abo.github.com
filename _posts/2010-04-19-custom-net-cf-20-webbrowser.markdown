@@ -13,10 +13,11 @@ title: .NET CF 2.0 WebBrowser控件定制
 
 ## 隐藏状态栏
 
-* 用Remote Spy连接到模拟器上，可以看到WebBrowser由两个Window组成：MSPIE Status和PIEHTML，其中MSPIE Status就是状态栏窗口，想办法隐藏它就可以了。以下是示例代码：
+用Remote Spy连接到模拟器上，可以看到WebBrowser由两个Window组成：MSPIE Status和PIEHTML，
+<img src="/images/remote spy.jpg"/>
+其中MSPIE Status就是状态栏窗口，想办法隐藏它就可以了。以下是示例代码：
 
-* Dll导入声明及工具方法：
-
+1. Dll导入声明及工具方法：
 {% highlight csharp %}
 
     /// <summary>
@@ -67,8 +68,7 @@ title: .NET CF 2.0 WebBrowser控件定制
     
 {% endhighlight %}
     
-* 在父控件的构造函数里去掉状态栏窗口：
-
+1. 在父控件的构造函数里去掉状态栏窗口：
 {% highlight csharp %}
 
 		IntPtr hwndStatus = FindHwnd(StatusBarClassName, body.Handle);
@@ -79,8 +79,7 @@ title: .NET CF 2.0 WebBrowser控件定制
     
 {% endhighlight %}
 
-* 这时会发现状态栏窗口是没了，但是就在WebBrowser控件的底部，原来状态栏窗口的位置，出现了一个矩形空白区域。调整一下WebBrowser控件的高度就行了：
-
+1. 这时会发现状态栏窗口是没了，但是就在WebBrowser控件的底部，原来状态栏窗口的位置，出现了一个矩形空白区域。调整一下WebBrowser控件的高度就行了：
 {% highlight csharp %}
 
 		/// <summary>
@@ -102,8 +101,7 @@ title: .NET CF 2.0 WebBrowser控件定制
     
 {% endhighlight %}
 
-* 在去掉状态栏窗口前计算一下高度，保存起来：
-        
+1. 在去掉状态栏窗口前计算一下高度，保存起来：        
 {% highlight csharp %}        
 
     RECT rectStatus = new RECT();              
@@ -113,8 +111,7 @@ title: .NET CF 2.0 WebBrowser控件定制
     
 {% endhighlight %}    
 
-* 然后在父控件的大小变化时调整WebBrowser的高度：
-
+1. 然后在父控件的大小变化时调整WebBrowser的高度：
 {% highlight csharp %}
 
 		browser.Height = this.Height + StatusBarHeight;		
@@ -123,10 +120,9 @@ title: .NET CF 2.0 WebBrowser控件定制
 
 ## 禁用ContextMenu
 
-* 将发给WebBrowser的ContextMenu相关消息截获，忽略掉就行了。这需要声明自己的消息处理函数，将原来的消息处理函数替换下来，然后在自己的消息处理函数里将WM_CONTEXTMENU以外的其他消息都转发到原消息处理函数，示例代码：
+将发给WebBrowser的ContextMenu相关消息截获，忽略掉就行了。这需要声明自己的消息处理函数，将原来的消息处理函数替换下来，然后在自己的消息处理函数里将WM_CONTEXTMENU以外的其他消息都转发到原消息处理函数，示例代码：
 
-* Dll导入声明及工具方法：
-
+1. Dll导入声明及工具方法：
 {% highlight csharp %}
 
     /// <summary>
@@ -186,8 +182,7 @@ title: .NET CF 2.0 WebBrowser控件定制
     
 {% endhighlight %}
         
-* 自己的消息处理：
-
+1. 自己的消息处理：
 {% highlight csharp %}
 
 	  /// <summary>
@@ -213,8 +208,7 @@ title: .NET CF 2.0 WebBrowser控件定制
 	  
   {% endhighlight %}
   
-* 在父控件的构造函数里将WebBrowser的消息处理函数换掉：
-
+1. 在父控件的构造函数里将WebBrowser的消息处理函数换掉：
 {% highlight csharp %}
 
 		IntPtr hwndIEHtml = FindHwnd(IEHTMLClassName, body.Handle);
