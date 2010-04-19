@@ -11,11 +11,11 @@ title: .NET CF 2.0 WebBrowser控件定制
 
 .net cf没有提供相关的API，不过好在有P/Invoke。
 
-1. 隐藏状态栏
+## 隐藏状态栏
 
-用Remote Spy连接到模拟器上，可以看到WebBrowser由两个Window组成：MSPIE Status和PIEHTML，其中MSPIE Status就是状态栏窗口，想办法隐藏它就可以了。以下是示例代码：
+* 用Remote Spy连接到模拟器上，可以看到WebBrowser由两个Window组成：MSPIE Status和PIEHTML，其中MSPIE Status就是状态栏窗口，想办法隐藏它就可以了。以下是示例代码：
 
-Dll导入声明及工具方法：
+* Dll导入声明及工具方法：
 
 {% highlight csharp %}
 
@@ -67,7 +67,7 @@ Dll导入声明及工具方法：
     
 {% endhighlight %}
     
-在父控件的构造函数里去掉状态栏窗口：
+* 在父控件的构造函数里去掉状态栏窗口：
 
 {% highlight csharp %}
 
@@ -79,7 +79,7 @@ Dll导入声明及工具方法：
     
 {% endhighlight %}
 
-这时会发现状态栏窗口是没了，但是就在WebBrowser控件的底部，原来状态栏窗口的位置，出现了一个矩形空白区域。调整一下WebBrowser控件的高度就行了：
+* 这时会发现状态栏窗口是没了，但是就在WebBrowser控件的底部，原来状态栏窗口的位置，出现了一个矩形空白区域。调整一下WebBrowser控件的高度就行了：
 
 {% highlight csharp %}
 
@@ -102,7 +102,7 @@ Dll导入声明及工具方法：
     
 {% endhighlight %}
 
-在去掉状态栏窗口前计算一下高度，保存起来：
+* 在去掉状态栏窗口前计算一下高度，保存起来：
         
 {% highlight csharp %}        
 
@@ -113,7 +113,7 @@ Dll导入声明及工具方法：
     
 {% endhighlight %}    
 
-然后在父控件的大小变化时调整WebBrowser的高度：
+* 然后在父控件的大小变化时调整WebBrowser的高度：
 
 {% highlight csharp %}
 
@@ -121,11 +121,11 @@ Dll导入声明及工具方法：
 		
 {% endhighlight %} 
 
-1. 禁用ContextMenu
+## 禁用ContextMenu
 
-将发给WebBrowser的ContextMenu相关消息截获，忽略掉就行了。这需要声明自己的消息处理函数，将原来的消息处理函数替换下来，然后在自己的消息处理函数里将WM_CONTEXTMENU以外的其他消息都转发到原消息处理函数，示例代码：
+* 将发给WebBrowser的ContextMenu相关消息截获，忽略掉就行了。这需要声明自己的消息处理函数，将原来的消息处理函数替换下来，然后在自己的消息处理函数里将WM_CONTEXTMENU以外的其他消息都转发到原消息处理函数，示例代码：
 
-Dll导入声明及工具方法：
+* Dll导入声明及工具方法：
 
 {% highlight csharp %}
 
@@ -186,7 +186,7 @@ Dll导入声明及工具方法：
     
 {% endhighlight %}
         
-自己的消息处理：
+* 自己的消息处理：
 
 {% highlight csharp %}
 
@@ -213,7 +213,7 @@ Dll导入声明及工具方法：
 	  
   {% endhighlight %}
   
-在父控件的构造函数里将WebBrowser的消息处理函数换掉：
+* 在父控件的构造函数里将WebBrowser的消息处理函数换掉：
 
 {% highlight csharp %}
 
