@@ -17,9 +17,7 @@ title: .NET CF 2.0 WebBrowser控件定制
 <img src="/images/remote spy.jpg"/>
 其中MSPIE Status就是状态栏窗口，想办法隐藏它就可以了。以下是示例代码：
 
-1. Dll导入声明及工具方法：
-{% highlight csharp %}
-
+1. Dll导入声明及工具方法：{% highlight csharp %}
     /// <summary>
     /// 状态栏的窗口名
     /// </summary>
@@ -68,15 +66,12 @@ title: .NET CF 2.0 WebBrowser控件定制
     
 {% endhighlight %}
     
-1. 在父控件的构造函数里去掉状态栏窗口：
-{% highlight csharp %}
-
+1. 在父控件的构造函数里去掉状态栏窗口：{% highlight csharp %}
 		IntPtr hwndStatus = FindHwnd(StatusBarClassName, body.Handle);
     if (hwndStatus != IntPtr.Zero)
     {                       
         DestroyWindow(hwndStatus);                
-    }
-    
+    }    
 {% endhighlight %}
 
 1. 这时会发现状态栏窗口是没了，但是就在WebBrowser控件的底部，原来状态栏窗口的位置，出现了一个矩形空白区域。调整一下WebBrowser控件的高度就行了：
