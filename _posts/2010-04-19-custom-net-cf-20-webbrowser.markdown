@@ -17,7 +17,8 @@ title: .NET CF 2.0 WebBrowser控件定制
 <img src="/images/remote spy.jpg"/>
 其中MSPIE Status就是状态栏窗口，想办法隐藏它就可以了。以下是示例代码：
 
-1. Dll导入声明及工具方法：{% highlight csharp %}
+1. Dll导入声明及工具方法：
+{% highlight csharp %}
     /// <summary>
     /// 状态栏的窗口名
     /// </summary>
@@ -66,7 +67,7 @@ title: .NET CF 2.0 WebBrowser控件定制
     
 {% endhighlight %}
     
-1. 在父控件的构造函数里去掉状态栏窗口：{% highlight csharp %}
+2. 在父控件的构造函数里去掉状态栏窗口：{% highlight csharp %}
 		IntPtr hwndStatus = FindHwnd(StatusBarClassName, body.Handle);
     if (hwndStatus != IntPtr.Zero)
     {                       
@@ -74,7 +75,7 @@ title: .NET CF 2.0 WebBrowser控件定制
     }    
 {% endhighlight %}
 
-1. 这时会发现状态栏窗口是没了，但是就在WebBrowser控件的底部，原来状态栏窗口的位置，出现了一个矩形空白区域。调整一下WebBrowser控件的高度就行了：
+3. 这时会发现状态栏窗口是没了，但是就在WebBrowser控件的底部，原来状态栏窗口的位置，出现了一个矩形空白区域。调整一下WebBrowser控件的高度就行了：
 {% highlight csharp %}
 
 		/// <summary>
@@ -96,7 +97,7 @@ title: .NET CF 2.0 WebBrowser控件定制
     
 {% endhighlight %}
 
-1. 在去掉状态栏窗口前计算一下高度，保存起来：        
+4. 在去掉状态栏窗口前计算一下高度，保存起来：        
 {% highlight csharp %}        
 
     RECT rectStatus = new RECT();              
@@ -106,7 +107,7 @@ title: .NET CF 2.0 WebBrowser控件定制
     
 {% endhighlight %}    
 
-1. 然后在父控件的大小变化时调整WebBrowser的高度：
+5. 然后在父控件的大小变化时调整WebBrowser的高度：
 {% highlight csharp %}
 
 		browser.Height = this.Height + StatusBarHeight;		
@@ -177,7 +178,7 @@ title: .NET CF 2.0 WebBrowser控件定制
     
 {% endhighlight %}
         
-1. 自己的消息处理：
+2. 自己的消息处理：
 {% highlight csharp %}
 
 	  /// <summary>
@@ -203,7 +204,7 @@ title: .NET CF 2.0 WebBrowser控件定制
 	  
   {% endhighlight %}
   
-1. 在父控件的构造函数里将WebBrowser的消息处理函数换掉：
+3. 在父控件的构造函数里将WebBrowser的消息处理函数换掉：
 {% highlight csharp %}
 
 		IntPtr hwndIEHtml = FindHwnd(IEHTMLClassName, body.Handle);
