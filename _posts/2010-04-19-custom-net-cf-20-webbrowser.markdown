@@ -18,7 +18,7 @@ title: .NET CF 2.0 WebBrowser控件定制
 Dll导入声明及工具方法：
 
 {% highlight csharp %}
-		#region DllImports
+
     /// <summary>
     /// 状态栏的窗口名
     /// </summary>
@@ -64,22 +64,25 @@ Dll导入声明及工具方法：
 
         return IntPtr.Zero;
     }
-    #endregion
+    
 {% endhighlight %}
     
 在父控件的构造函数里去掉状态栏窗口：
 
 {% highlight csharp %}
+
 		IntPtr hwndStatus = FindHwnd(StatusBarClassName, body.Handle);
     if (hwndStatus != IntPtr.Zero)
     {                       
         DestroyWindow(hwndStatus);                
     }
+    
 {% endhighlight %}
 
 这时会发现状态栏窗口是没了，但是就在WebBrowser控件的底部，原来状态栏窗口的位置，出现了一个矩形空白区域。调整一下WebBrowser控件的高度就行了：
 
 {% highlight csharp %}
+
 		/// <summary>
     /// 状态栏窗口的高度
     /// </summary>
@@ -96,21 +99,26 @@ Dll导入声明及工具方法：
         public int Width;
         public int Height;
     }    
+    
 {% endhighlight %}
 
 在去掉状态栏窗口前计算一下高度，保存起来：
         
 {% highlight csharp %}        
+
     RECT rectStatus = new RECT();              
     GetClientRect(hwndStatus, out rectStatus);
     StatusBarHeight = rectStatus.Height;
     DestroyWindow(hwndStatus);     
+    
 {% endhighlight %}    
 
 然后在父控件的大小变化时调整WebBrowser的高度：
 
 {% highlight csharp %}
+
 		browser.Height = this.Height + StatusBarHeight;		
+		
 {% endhighlight %} 
 
 1. 禁用ContextMenu
@@ -120,6 +128,7 @@ Dll导入声明及工具方法：
 Dll导入声明及工具方法：
 
 {% highlight csharp %}
+
     /// <summary>
     /// 浏览器控件的窗口名
     /// </summary>
@@ -174,11 +183,13 @@ Dll导入声明及工具方法：
 
         return IntPtr.Zero;
     }
+    
 {% endhighlight %}
         
 自己的消息处理：
 
 {% highlight csharp %}
+
 	  /// <summary>
 	  /// 默认的窗口消息处理函数
 	  /// </summary>
@@ -199,11 +210,13 @@ Dll导入声明及工具方法：
 	      }
 	      return CallWindowProc(originalWndProc, hWnd, msg, wParam, lParam);
 	  }
+	  
   {% endhighlight %}
   
 在父控件的构造函数里将WebBrowser的消息处理函数换掉：
 
 {% highlight csharp %}
+
 		IntPtr hwndIEHtml = FindHwnd(IEHTMLClassName, body.Handle);
 		if (hwndIEHtml != IntPtr.Zero)
 		{
@@ -211,4 +224,12 @@ Dll导入声明及工具方法：
 		    originalWndProc = GetWindowLong(hwndIEHtml, GWL_WNDPROC);
 		    SetWindowLong(hwndIEHtml, GWL_WNDPROC, Marshal.GetFunctionPointerForDelegate(customWndProc));
 		}
+		
 {% endhighlight %}
+
+
+参考资料：
+
+<a href="http://www.chriskarcher.net/2008/01/26/hiding-the-progress-bar-of-a-net-20-cf-webbrowser">http://www.chriskarcher.net/2008/01/26/hiding-the-progress-bar-of-a-net-20-cf-webbrowser</a>
+
+<a href="http://blogs.msdn.com/raffael/archive/2009/01/08/disable-webbrowser-s-context-menu-in-netcf-applications.aspx">http://blogs.msdn.com/raffael/archive/2009/01/08/disable-webbrowser-s-context-menu-in-netcf-applications.aspx</a>
