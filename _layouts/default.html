@@ -76,7 +76,20 @@
         </ul>
       </div><!-- end of sidebar -->  	
 
-            
+      <div id="disqus_thread"></div>
+			<script type="text/javascript">
+			  /**
+			    * var disqus_identifier; [Optional but recommended: Define a unique identifier (e.g. post id or slug) for this thread] 
+			    */
+			  (function() {
+			   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+			   dsq.src = 'http://githubpages.disqus.com/embed.js';
+			   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			  })();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript=githubpages">comments powered by Disqus.</a></noscript>
+			<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
       <div id='footer'>      	
       	Theme inspired by <a href="http://alpinegizmo.com/">David Anderson</a>. Hosted by <a href="http://github.com">GitHub</a>,Powered by <a href="http://wiki.github.com/mojombo/jekyll/">Jekyll</a>. 
         Content Copyright &copy; 2010 Shengbo Huang. <br />        
@@ -84,6 +97,16 @@
 
     </div><!-- end of page -->
   </div><!-- end of site -->
+  <!--DISQUS-->
+  <script type="text/javascript">
+		var disqus_shortname = 'githubpages';
+		(function () {
+		  var s = document.createElement('script'); s.async = true;
+		  s.src = 'http://disqus.com/forums/githubpages/count.js';
+		  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+		}());
+	</script>
+	<!--Google Analytics-->
 	<script type="text/javascript">
 		var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 		document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
